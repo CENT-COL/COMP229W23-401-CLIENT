@@ -1,1 +1,93 @@
-<p>edit works!</p>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1>Edit Movie</h1>
+
+            <!-- Message Area -->
+            <div class="alert alert-danger" *ngIf="!isSuccessfull">
+                {{ errorMessage }}
+            </div>
+
+
+
+            <form class="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" >
+                
+              
+                <div class="form-group">
+                    <label for="nameTextField">Movie Title</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="form.name" #name="ngModel"
+                    id="nameTextField"
+                    placeholder="Enter the Movie Title"
+                    name="name"                     
+                    required>
+
+                    <div *ngIf="name.errors?.['required'] && f.submitted">Movie Title is Required</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="authorTextField">Year</label>
+                    <input type="number" class="form-control"
+                    [(ngModel)]="form.year" #year="ngModel"
+                    id="authorTextField"
+                    placeholder="Enter the Release Year"
+                    name="year"                    
+                    required>
+                    
+                    <div *ngIf="year.errors?.['required'] && f.submitted">Movie Year is Required</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="publishedTextField">Director</label>
+                    <input type="text" class="form-control"
+                    id="publishedTextField"
+                    placeholder="Enter the Director's Name"
+                    [(ngModel)]="form.director" #director="ngModel"
+                    name="director"                     
+                    required>
+                  
+                    <div *ngIf="director.errors?.['required'] && f.submitted">Movie Director is Required</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="descriptionTextArea">Genre</label>
+                    <input type="text" class="form-control"
+                    id="descriptionTextArea"
+                    [(ngModel)]="form.genre" #genre="ngModel"
+                    placeholder="Enter the Movie genre"
+                    name="genre"   
+                    required>
+
+                    
+                    <div *ngIf="genre.errors?.['required'] && f.submitted">Movie Genre is Required</div>
+
+                   
+                </div>
+
+                <div class="form-group">
+                    <label for="priceTextField">Runtime (in minutes)</label>
+                    <input type="number" class="form-control"
+                    id="priceTextField"
+                    placeholder="Enter the Movie's Runtime in Minutes"
+                    [(ngModel)]="form.runtime" #runtime="ngModel"
+                    name="runtime"                    
+                    required>
+                    
+                    <div *ngIf="runtime.errors?.['required'] && f.submitted">Movie Runtime is Required</div>
+
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+                
+                    <a href="/movie/list" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel</a>
+
+            </form>
+        </div>
+
+    </div>
+</div>
