@@ -13,7 +13,11 @@ import { ContactComponent } from './content/contact/contact.component';
 import { LoginComponent } from './content/auth/login/login.component';
 import { RegisterComponent } from './content/auth/register/register.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MovieAddComponent } from './content/movies/add/add.component';
+import { MovieEditComponent } from './content/movies/edit/edit.component';
+import { MovieListComponent } from './content/movies/list/list.component';
+import { AuthInterceptor } from './_helper/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     ServicesComponent,
     ContactComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieAddComponent,
+    MovieEditComponent,
+    MovieListComponent
   ],
   imports: [
     HttpClientModule,
@@ -34,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

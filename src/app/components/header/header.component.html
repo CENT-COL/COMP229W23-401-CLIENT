@@ -23,7 +23,7 @@
           </li>   
           <ng-container *ngIf="isLoggedIn else showLoginTemplate">
             <li class="nav-item">
-              <a class="nav-link"routerLinkActive="active" routerLink="/movie-list" aria-current="page" href="/movie-list">Movie List</a>
+              <a class="nav-link"routerLinkActive="active" routerLink="/movie/list" aria-current="page" href="/movie/list">Movie List</a>
             </li>   
             <li class="nav-item">              
               <a href="/logout" routerLinkActive="active" (click)="logout()" routerLink="/logout" class="nav-link"> Logout</a>

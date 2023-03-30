@@ -7,6 +7,9 @@ import { ContactComponent } from './content/contact/contact.component';
 import { AboutComponent } from './content/about/about.component';
 import { LoginComponent } from './content/auth/login/login.component';
 import { RegisterComponent } from './content/auth/register/register.component';
+import { MovieListComponent } from './content/movies/list/list.component';
+import { MovieAddComponent } from './content/movies/add/add.component';
+import { MovieEditComponent } from './content/movies/edit/edit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full' },
@@ -17,6 +20,10 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent },
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
+  {path: 'movie/list', component: MovieListComponent },
+  {path: 'movie/add', component: MovieAddComponent },
+  {path: 'movie/edit/:id', component: MovieEditComponent },
+
 ];
 
 @NgModule({
